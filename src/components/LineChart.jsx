@@ -24,10 +24,9 @@ ChartJS.register(
 
 const LineChart = ({ data }) => {
   const filteredData = data.filter((d) => d.timestamp && d.alert?.category);
-  // Count alerts per timestamp (rounded to minute for better grouping)
   const timeCountMap = {};
   filteredData.forEach((d) => {
-    const timeKey = new Date(d.timestamp).toLocaleString(); // Or use .toISOString().slice(0, 16)
+    const timeKey = new Date(d.timestamp).toLocaleString(); 
     timeCountMap[timeKey] = (timeCountMap[timeKey] || 0) + 1;
   });
 
